@@ -1,0 +1,55 @@
+#:kivy 1.10.0
+
+<RootScreen>:
+    name: 'root'
+    CharacterCreationScreen:
+    TitleScreen:
+
+<CharacterCreationScreen>:
+    name: 'character_creation'
+    Label:
+        text: 'Character Creation'
+        pos_hint: {'x': 0, 'y': 0.45}
+        size: self.size
+        font_size: 26
+
+    TextInput:
+        hint_text: 'Name (up to 26 characters)'
+        size_hint: 0.3, 0.05
+        pos_hint: {'x': 0.02, 'y': 0.85}
+
+    ToggleButton:
+        group: 'gender'
+        text: 'female'
+        size_hint: 0.1, 0.05
+        pos_hint: {'x': 0.4, 'y': 0.85}
+
+    ToggleButton:
+        group: 'gender'
+        text: 'male'
+        size_hint: 0.1, 0.05
+        pos_hint: {'x': 0.4999, 'y': 0.85}
+
+    Spinner:
+        text: 'Race'
+        values: ('Human', 'Elf', 'Dwarf', 'Gnome', 'Half-Orc', 'Hobbit')
+        size_hint_y: None
+        height: '48dp'
+
+<TitleScreen>:
+    name: 'start'
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+
+        Image:
+            source: 'logo.png'
+            size_hint: None, None
+            size: 400, 400
+
+    Button:
+        text: "START"
+        size_hint: 0.4, 0.1
+        pos_hint: {'x': 0.3, 'y': 0.2}
+        on_press: root.manager.current = 'character_creation'
+
